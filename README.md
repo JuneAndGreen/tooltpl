@@ -78,3 +78,7 @@ ${var1|filter1|filter2:var2, var3}
 // 使用内置过滤器escape转义html的特殊符号
 ${var1|escape}
 ```
+
+## 协议
+
+MIT
