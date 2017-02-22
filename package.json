@@ -1,13 +1,18 @@
 {
   "name": "tooltpl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a simple template engine for javascript",
   "main": "tpl.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuneAndGreen/tooltpl.git"
+  },
   "keywords": [
     "simple",
+    "base on string",
     "template engine",
     "javascript"
   ],
