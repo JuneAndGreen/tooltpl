@@ -216,7 +216,7 @@ var __PARSE__ = (function() {
                 } else {
                     // 未匹配成功，则判定为其他语句
                     out.push('OUT.push(\'{\');');
-                    stmend = stmbeg + 1;
+                    stmend = stmbeg;
                 }
             }
             beg = stmend + 1;
