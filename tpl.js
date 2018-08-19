@@ -119,7 +119,7 @@ var __PARSE__ = (function() {
      * 解析模板
      */
     var doParseTemplate = function(content, data, filter) {
-        content = content.replace(/\t/g, '  ').replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+        content = content.replace(/\t/g, '  ').replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/'/g, '\\\'');
 
         // 初始化模板生成器结构
         var out = [];
@@ -210,7 +210,14 @@ var __PARSE__ = (function() {
                 // 针对js语句
                 out.push('OUT.push(\'' + preCode + '\');');
                 stmJs = content.substring(stmbeg + 1, stmend);
-                out.push(transStm(stmJs));
+                stmJs = transStm(stmJs)
+                if (stmJs) {
+                    out.push(stmJs);
+                } else {
+                    // 未匹配成功，则判定为其他语句
+                    out.push('OUT.push(\'{\');');
+                    stmend = stmbeg + 1;
+                }
             }
             beg = stmend + 1;
         }
